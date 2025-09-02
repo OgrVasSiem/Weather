@@ -3,6 +3,7 @@ package com.kamaz.weather.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.kamaz.weather.R
 import com.kamaz.weather.data.dataStore.AuthorizationDataStore
@@ -23,16 +24,25 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navController = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
-            ?.findNavController() ?: return
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as? NavHostFragment
+                ?: return
+        val navController = navHostFragment.navController
 
         lifecycleScope.launch {
             val (login, password) = authorizationDataStore.data.first()
-            if (login.isNotEmpty() && password.isNotEmpty()) {
-                navController.navigate(R.id.mainFragment)
-            } else {
-                navController.navigate(R.id.loginFragment)
-            }
+
+            val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+
+            navGraph.setStartDestination(
+                if (login.isNotEmpty() && password.isNotEmpty()) {
+                    R.id.mainFragment
+                } else {
+                    R.id.loginFragment
+                }
+            )
+
+            navController.graph = navGraph
         }
     }
 }

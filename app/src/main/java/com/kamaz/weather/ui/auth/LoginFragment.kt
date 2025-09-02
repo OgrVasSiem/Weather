@@ -38,11 +38,18 @@ class LoginFragment : Fragment() {
             if (login.isNotBlank() && password.isNotBlank()) {
                 viewModel.saveCredentials(login, password)
 
-                findNavController().navigate(R.id.mainFragment)
+                findNavController().navigate(
+                    R.id.mainFragment,
+                    null,
+                    androidx.navigation.NavOptions.Builder()
+                        .setPopUpTo(R.id.loginFragment, true)
+                        .build()
+                )
             } else {
                 Toast.makeText(requireContext(), getString(R.string.msg_fill_all_fields), Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     override fun onDestroyView() {
