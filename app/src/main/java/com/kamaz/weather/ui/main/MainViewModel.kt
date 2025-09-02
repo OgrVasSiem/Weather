@@ -3,8 +3,8 @@ package com.kamaz.weather.ui.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kamaz.weather.common.connectivityObserver.ConnectivityObserver
-import com.kamaz.weather.data.dataBase.repository.WeatherRepository
 import com.kamaz.weather.common.model.WeatherUiModel
+import com.kamaz.weather.data.dataBase.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

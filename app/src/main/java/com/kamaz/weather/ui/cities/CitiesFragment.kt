@@ -4,23 +4,18 @@ import android.content.Context
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Space
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.textfield.TextInputEditText
@@ -62,9 +57,11 @@ class CitiesFragment : Fragment() {
         binding.recyclerCities.setHasFixedSize(true)
         binding.recyclerCities.adapter = adapter
 
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.allCities.collect { cities ->
-                adapter.submitList(cities)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.allCities.collect { cities ->
+                    adapter.submitList(cities)
+                }
             }
         }
     }

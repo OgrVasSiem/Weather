@@ -46,4 +46,6 @@
     <string name="sample_longitude">Lon: 37.61</string>
     <string name="lat_format">Lat: %1$.4f</string>
     <string name="lon_format">Lon: %1$.4f</string>
+    <string name="msg_fill_all_fields">Заполните все поля</string>
+
 </resources>

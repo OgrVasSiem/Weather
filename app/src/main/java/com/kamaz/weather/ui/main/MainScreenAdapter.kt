@@ -70,7 +70,6 @@ class MainScreenAdapter(
                 else -> R.drawable.ic_weather_unknown
             }
         }
-
     }
 
     class WeatherDiffCallback : DiffUtil.ItemCallback<WeatherUiModel>() {

@@ -40,7 +40,7 @@ class LoginFragment : Fragment() {
 
                 findNavController().navigate(R.id.mainFragment)
             } else {
-                Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.msg_fill_all_fields), Toast.LENGTH_SHORT).show()
             }
         }
     }

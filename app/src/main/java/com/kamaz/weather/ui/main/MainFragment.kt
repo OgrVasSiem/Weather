@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kamaz.weather.R
@@ -39,18 +41,20 @@ class MainFragment : Fragment() {
             setHasFixedSize(true)
         }
 
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.visibleCities.collect { list ->
-                adapter.submitList(list)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.visibleCities.collect { list ->
+                        adapter.submitList(list)
+                    }
+                }
+                launch {
+                    viewModel.isConnected.collect { connected ->
+                        if (!connected) showSnackbar(isNoInternet = true)
+                    }
+                }
             }
         }
-
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            viewModel.isConnected.collect { connected ->
-                if (!connected) showSnackbar(isNoInternet = true)
-            }
-        }
-
         binding.ivGoToCities.setOnClickListener {
             findNavController().navigate(R.id.action_main_to_cities)
         }
@@ -59,7 +63,7 @@ class MainFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch { viewModel.refreshWeather() }
         }
 
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel.refreshWeather()
         }
     }

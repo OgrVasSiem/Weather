@@ -9,8 +9,6 @@ import com.kamaz.weather.data.dataBase.AppDatabase
 import com.kamaz.weather.data.dataBase.CityDao
 import com.kamaz.weather.data.dataBase.CityEntity
 import com.kamaz.weather.data.dataBase.MIGRATION_1_2
-
-
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
