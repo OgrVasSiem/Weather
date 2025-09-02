@@ -1,31 +1,49 @@
 <resources>
     <string name="app_name">weather</string>
-
     <string name="login_title">Вход в аккаунт</string>
     <string name="login_hint">Логин</string>
     <string name="password_hint">Пароль</string>
     <string name="continue_button">Продолжить</string>
-
-    <string name="city_moscow">Москва</string>
-    <string name="city_saint_petersburg">Санкт-Петербург</string>
-    <string name="city_novosibirsk">Новосибирск</string>
-    <string name="city_yekaterinburg">Екатеринбург</string>
-    <string name="city_kazan">Казань</string>
-    <string name="city_nizhny_novgorod">Нижний Новгород</string>
-    <string name="city_chelyabinsk">Челябинск</string>
-    <string name="city_samara">Самара</string>
-    <string name="city_omsk">Омск</string>
-    <string name="city_rostov">Ростов-на-Дону</string>
-    <string name="city_ufa">Уфа</string>
-    <string name="city_krasnoyarsk">Красноярск</string>
-    <string name="city_voronezh">Воронеж</string>
-    <string name="city_perm">Пермь</string>
-    <string name="city_volgograd">Волгоград</string>
-
     <string name="main_screen_title">Прогноз погоды</string>
     <string name="go_to_cities">Города</string>
     <string name="weather_icon">Иконка погоды</string>
-
     <string name="snackbar_no_connection">Нет подключения к интернету</string>
     <string name="snackbar_server_error">Ошибка сервера. Попробуйте позже</string>
+    <string name="wind_speed">Скорость ветра: %1$s</string>
+    <string name="wind_direction">Направление ветра: %1$s</string>
+    <string name="cities_title">Города</string>
+    <string name="cities_empty_title">Добавь первый город</string>
+    <string name="city_add">Добавить город</string>
+    <string name="city_name">Название города</string>
+    <string name="latitude">Широта</string>
+    <string name="longitude">Долгота</string>
+    <string name="show_on_main">Показывать на главном</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="cancel">Отмена</string>
+    <string name="add">Добавить</string>
+    <string name="save">Сохранить</string>
+    <string name="city_visible">Показывать</string>
+    <string name="dlg_add_title">Добавить город</string>
+    <string name="city_name_hint">Название</string>
+    <string name="latitude_hint">Широта (−90..90)</string>
+    <string name="longitude_hint">Долгота (−180..180)</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_add">Добавить</string>
+    <string name="dlg_edit_title">Редактировать координаты</string>
+    <string name="btn_save">Сохранить</string>
+    <string name="dlg_delete_title">Удалить город</string>
+    <string name="dlg_delete_message">Удалить «%1$s»?</string>
+    <string name="btn_delete">Удалить</string>
+    <string name="msg_check_fields">Проверьте название и координаты</string>
+    <string name="msg_invalid_coords">Некорректные координаты</string>
+    <string name="msg_add_failed">Город уже существует или не удалось добавить</string>
+    <string name="sample_city_name">Москва</string>
+    <string name="sample_temperature">25°C</string>
+    <string name="sample_wind_speed">Скорость ветра: 10 м/с</string>
+    <string name="sample_wind_direction">Направление ветра: С</string>
+    <string name="sample_latitude">Lat: 55.75</string>
+    <string name="sample_longitude">Lon: 37.61</string>
+    <string name="lat_format">Lat: %1$.4f</string>
+    <string name="lon_format">Lon: %1$.4f</string>
 </resources>

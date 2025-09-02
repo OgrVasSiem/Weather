@@ -31,7 +31,6 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Обработка клика на Box вместо кнопки
         binding.btnContinue.setOnClickListener {
             val login = binding.etLogin.text.toString()
             val password = binding.etPassword.text.toString()
@@ -39,7 +38,6 @@ class LoginFragment : Fragment() {
             if (login.isNotBlank() && password.isNotBlank()) {
                 viewModel.saveCredentials(login, password)
 
-                // Навигация на главный экран
                 findNavController().navigate(R.id.mainFragment)
             } else {
                 Toast.makeText(requireContext(), "Заполните все поля", Toast.LENGTH_SHORT).show()

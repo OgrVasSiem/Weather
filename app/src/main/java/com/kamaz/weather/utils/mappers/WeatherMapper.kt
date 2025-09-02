@@ -5,15 +5,14 @@ import com.kamaz.weather.common.model.WeatherUiModel
 
 fun CurrentWeatherDto.toUiModel(displayNameRes: String): WeatherUiModel {
     return WeatherUiModel(
-        cityName = displayNameRes,  // получаем русский текст сразу
+        cityName = displayNameRes,
         temperature = "$temperature°C",
         windSpeed = "$windSpeed м/с",
-        windDirection = "ветер $windDirection°",
+        windDirection = " ${windDirection.toCardinalDirection()}",
         weatherCode = weatherCode,
         time = time
     )
 }
-
 
 fun Double.toCardinalDirection(): String {
     val directions = listOf("С", "СВ", "В", "ЮВ", "Ю", "ЮЗ", "З", "СЗ")

@@ -1,8 +1,8 @@
-package com.foresko.atom.core.common.utils.connectivityObserver.di
+package com.kamaz.weather.common.connectivityObserver.di
 
 import android.content.Context
-import com.foresko.atom.core.common.utils.connectivityObserver.AndroidConnectivityObserver
-import com.foresko.atom.core.common.utils.connectivityObserver.ConnectivityObserver
+import com.kamaz.weather.common.connectivityObserver.AndroidConnectivityObserver
+import com.kamaz.weather.common.connectivityObserver.ConnectivityObserver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
